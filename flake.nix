@@ -43,6 +43,11 @@
         packages = {
           default = craneLib.buildPackage {
             src = ./.;
+
+            buildInputs = [ pkgs.protobuf ];
+
+            PROTOC = "${pkgs.protobuf}/bin/protoc";
+            PROTOC_INCLUDE = "${pkgs.protobuf}/include";
           };
         };
 
